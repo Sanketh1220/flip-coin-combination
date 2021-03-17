@@ -6,6 +6,14 @@ declare -A HH
 declare -A TT
 declare -A TH
 declare -A HT
+declare -A HHH
+declare -A HHT
+declare -A HTH
+declare -A HTT
+declare -A THH
+declare -A THT
+declare -A TTH
+declare -A TTT
 
 headsCount=0 
 tailsCount=0
@@ -69,3 +77,72 @@ echo ${#TT[@]} " is percentage of TT in doublet combination."
 echo ${#HT[@]} " is percentage of HT in doublet combination."
 #echo ${TH[@]}
 echo ${#TH[@]} " is percentage of TH in doublet combination."
+
+hhhcount=0
+hhtcount=0
+hthcount=0
+httcount=0
+thhcount=0
+thtcount=0
+tthcount=0
+tttcount=0
+
+for (( j=1; j<=100; j++ ))
+do
+   ran3=$(( RANDOM % 2 ))
+   ran4=$(( RANDOM % 2 ))
+	ran5=$(( RANDOM % 2 ))  
+   
+   result=$ran3$ran4$ran5
+
+   if [ $result -eq 000 ]
+   then
+      HHH[$hhhcount]="HHH"
+      ((hhhcount++))
+   elif [ $result -eq 001 ]
+   then
+      HHT[$hhtcount]="HHT"
+      ((hhtcount++))
+   elif [ $result -eq 010 ]
+   then
+      HTH[$hthcount]="HTH"
+      ((hthcount++))
+	elif [ $result -eq 011 ]
+	then
+		HTT[$httcount]="HTT"
+		((httcount++))
+	elif [ $result -eq 100 ]
+	then
+		THH[$thhcount]="THH"
+		((thhcount++))
+	elif [ $result -eq 101 ]
+	then
+		THT[$thtcount]="THT"
+		((thtcount++))
+	elif [ $result -eq 110 ]
+	then
+		TTH[$tthcount]="TTH"
+		((tthcount++))
+	elif [ $result -eq 111 ]
+	then
+		TTT[$tttcount]="TTT"
+		((tttcount++))
+   fi
+done
+
+#echo ${HHH[@]}
+echo ${#HHH[@]} " is percentage of 'HHH' in Triplet combination."
+#echo ${HHT[@]}
+echo ${#HHT[@]} " is percentage of 'HHT' in Triplet combination."
+#echo ${HTH[@]}
+echo ${#HTH[@]} " is percentage of 'HTH' in Triplet combination."
+#echo ${HTT[@]}
+echo ${#HTT[@]} " is percentage of 'HTT' in Triplet combination."
+#echo ${THH[@]}
+echo ${#THH[@]} " is percentage of 'THH' in Triplet combination."
+#echo ${THT[@]}
+echo ${#THT[@]} " is percentage of 'THT' in Triplet combination."
+#echo ${TTH[@]}
+echo ${#TTH[@]} " is percentage of 'TTH' in Triplet combination."
+#echo ${TTT[@]}
+echo ${#TTT[@]} " is percentage of 'TTT' in Triplet combination."
