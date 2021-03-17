@@ -146,3 +146,13 @@ echo ${#THT[@]} " is percentage of 'THT' in Triplet combination."
 echo ${#TTH[@]} " is percentage of 'TTH' in Triplet combination."
 #echo ${TTT[@]}
 echo ${#TTT[@]} " is percentage of 'TTT' in Triplet combination."
+
+if [ ${#Heads[@]} -gt ${#Tails[@]} ]
+then
+	echo "The combination 'H' in singlet is most winning combination."
+elif [ ${#Heads[@]} -lt ${#Tails[@]} ]
+then
+	echo "The combination 'T' in singlet is most winning combination."
+else
+	echo "The combination 'T' and 'H' in singlet are winning combinations."
+fi
