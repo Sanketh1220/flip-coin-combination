@@ -1,14 +1,31 @@
 #! /bash/bin -x
 
+declare -A Heads
+declare -A Tails
 
-ran=$(( RANDOM % 2 ))
+headsCount=0 
+tailsCount=0
 
-case $ran in
+for (( i=1; i<=100; i++ ))
+do
+	ran=$(( RANDOM % 2 ))
+		
+	if	[ $ran -eq 0 ]
+	then
+		Heads[$headsCount]="H"
+		((headsCount++))
+	elif [ $ran -eq 1 ]
+	then
+		Tails[$tailsCount]="T"
+		((tailsCount++))
+	fi
+done
 
-   1) echo "Tail's Wins!" ;;
+#echo ${Heads[@]}
+echo ${#Heads[@]} " is percentage of 'H' in singlet combination."
+#echo ${Tails[@]}
+echo ${#Tails[@]} " is percentage of 'T' in singlet combination."
 
-   0) echo "Head's Wins!" ;;
 
-   *) echo "Invalid option" ;;
 
-esac
+
