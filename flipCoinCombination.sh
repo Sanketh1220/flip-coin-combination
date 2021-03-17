@@ -5,9 +5,9 @@ ran=$(( RANDOM % 2 ))
 
 case $ran in
 
-   0) echo "Heads Wins!" ;;
+   1) echo "Tail's Wins!" ;;
 
-   1) echo "Tails Wins!" ;;
+   0) echo "Head's Wins!" ;;
 
    *) echo "Invalid option" ;;
 
